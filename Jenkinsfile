@@ -2,20 +2,12 @@ pipeline {
     agent any
 
     environment {
-        BRANCH_NAME = "main"
         SONAR_PROJECT_KEY = "python-app"
         SONAR_HOST_URL = "http://localhost:9000"
         SONAR_SCANNER = "/opt/sonar-scanner/bin/sonar-scanner"
     }
 
     stages {
-
-        stage('Checkout Code') {
-            steps {
-                git branch: "${BRANCH_NAME}",
-                    url: "git@github.com:sreepradaa/Data-Website-Project.git"
-            }
-        }
 
         stage('Setup Python Environment') {
             steps {
